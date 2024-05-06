@@ -132,7 +132,7 @@ crontab -e
 編集画面では末尾へ次のように記載してください。
 
 ```crontab
-* * * * * python /home/pi/raspi-cam/src/raspi-cam.py
+* * * * * python /home/pi/raspi-cam/src/raspi_cam.py
 ```
 
 記載後、エディタを保存して閉じると、１分ごとに画像が撮影されるようになります。
