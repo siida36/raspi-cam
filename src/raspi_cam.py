@@ -28,9 +28,8 @@ from datetime import datetime
 from pathlib import Path
 from subprocess import run
 
-
 USER_NAME = "pi"  # TODO: Set your name.
-ROOT_DIR = Path(f"/home/{USER_NAME}/workspace")
+ROOT_DIR = Path(f"/home/{USER_NAME}/raspi-cam")
 
 
 def get_current_time() -> str:
@@ -61,6 +60,7 @@ def flush_history(out_dir: Path, n_max_data: int = 10):
 def main(root_dir: Path = ROOT_DIR):
     """Main routine."""
     out_dir = root_dir.joinpath("output")
+    out_dir.mkdir(exist_ok=True, parents=True)
 
     take_photo(out_dir)
     flush_history(out_dir)

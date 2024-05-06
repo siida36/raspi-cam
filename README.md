@@ -110,7 +110,7 @@ sudo apt install -y fswebcam
 ## 撮影する
 
 次のコマンドを実行することで、カメラを使って撮影することができます。
-撮影された画像は実行したディレクトリの中に保存されます。
+撮影された画像は `output` ディレクトリの中に保存されます。
 
 ```bash
 python src/raspi_cam.py
