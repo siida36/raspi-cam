@@ -113,5 +113,5 @@ sudo apt install -y fswebcam
 撮影された画像は実行したディレクトリの中に保存されます。
 
 ```bash
-python raspi_cam.py
+python src/raspi_cam.py
 ```
