@@ -139,16 +139,24 @@ crontab -e
 
 ### 撮影した画像をネットワークから確認する
 
-まずはRaspberry Piでローカルサーバを立ち上げます。
+まずはRaspberry PiのIPアドレスを調べます。次のコマンドを実行して `wlan0` の `inet` と記載のある箇所のIPアドレスをメモしてください。
+
+```bash
+ifconfig
+```
+
+次にRaspberry Piでローカルサーバを立ち上げます。
 これにより、実行したディレクトリをネットワーク上からアクセスできるようになります。
 
 ```bash
 python -m http.server 8080
 ```
 
-次にRaspberry Piではない別のPCで、Webブラウザを立ち上げてください。
-そしてURL欄に次のように打ち込むと、Raspberry Piのディレクトリにアクセスできます。
+そしてRaspberry Piではない別のPCで、Webブラウザを立ち上げてください。
+URL欄に次のように打ち込むと、Raspberry Piのディレクトリにアクセスできます。
 
-`http://localhost:8080`
+`http://<Raspberry PiのIPアドレス>:8080`
+
+（例）`http://192.168.10.215:8080`
 
 公開されているディレクトリに `output` があることを確認したら、その中にある写真を覗いてみましょう。
