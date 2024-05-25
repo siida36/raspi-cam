@@ -41,18 +41,28 @@ def camera_cheack():
 
 def capture():
     cap = cv2.VideoCapture(0)
+    cascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
     while True:
         # フレームごとにキャプチャ
-        ret, frame = cap.read(0)
+        # ret, frame = cap.read(0)
+        ret, frame = cap.read()
 
         # フレームの取得に失敗した場合
         if not ret:
             print("フレームの取得に失敗しました。終了します。")
             break
-        
+
+        # 顔を検出する
+        lists = cascade.detectMultiScale(frame, minSize=(50, 50))
+
+        # forですべての顔を赤い長方形で囲む
+        for (x, y, w, h) in lists:
+            cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 0, 255), thickness=2)
+
         # フレームを画面に表示
         ret, buffer = cv2.imencode(".jpg", frame)
         frame = buffer.tobytes()
+
         yield(b"--frame\r\n"
         b"Content-Type: image/jpeg\r\n\r\n" + frame + b"\r\n")
 
