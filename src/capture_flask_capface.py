@@ -66,8 +66,8 @@ def capture():
         yield(b"--frame\r\n"
         b"Content-Type: image/jpeg\r\n\r\n" + frame + b"\r\n")
 
-@app.route("/video_feed")
-def video_feed():
+@app.route("/video_feed_capface")
+def video_feed_capface():
     return Response(capture(), 
         mimetype="multipart/x-mixed-replace; boundary=frame")
 

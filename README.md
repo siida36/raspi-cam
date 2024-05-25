@@ -188,3 +188,20 @@ URL欄に次のように打ち込むと、Raspberry Piの配信ページにア�
 （例）`http://192.168.10.215:5000/video_feed`
 
 アクセス先でカメラの映像が確認できれば成功です。
+
+### 配信した動画で顔認証を実施する
+
+動画を撮影してネットワークで配信するには、下記のコマンドをターミナルから実行します。
+
+```bash
+python src/capture_flask_capface.py
+```
+
+次にRaspberry Piではない別のPCで、Webブラウザを立ち上げてください。
+URL欄に次のように打ち込むと、Raspberry Piの配信ページにアクセスできます。
+
+`http://<Raspberry PiのIPアドレス>:5000/video_feed_capface`
+
+（例）`http://192.168.10.215:5000/video_feed_capface`
+
+アクセス先でカメラの映像が確認できれば成功です。
